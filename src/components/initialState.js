@@ -1,7 +1,7 @@
 const initialState = {
   intClock: 1500,
   isTimerRunning: false,
-  workTime: true,
+  sessionMode: true,
   breakLength: 5,
   sessionLength: 25,
 };

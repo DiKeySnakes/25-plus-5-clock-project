@@ -47,13 +47,13 @@ function Clock() {
       const newTime = newSessionLength * 60;
 
       if (prevState[input] < 60 && !state.isTimerRunning) {
-        if (prevState.workTime && input === 'sessionLength') {
+        if (prevState.sessionMode && input === 'sessionLength') {
           return {
             ...prevState,
             intClock: newTime,
             sessionLength: newSessionLength,
           };
-        } else if (!prevState.workTime && input === 'breakLength') {
+        } else if (!prevState.sessionMode && input === 'breakLength') {
           return {
             ...prevState,
             intClock: newTime,
@@ -74,13 +74,13 @@ function Clock() {
       const newTime = newSessionLength * 60;
 
       if (prevState[input] > 1 && !state.isTimerRunning) {
-        if (prevState.workTime && input === 'sessionLength') {
+        if (prevState.sessionMode && input === 'sessionLength') {
           return {
             ...prevState,
             intClock: newTime,
             sessionLength: newSessionLength,
           };
-        } else if (!prevState.workTime && input === 'breakLength') {
+        } else if (!prevState.sessionMode && input === 'breakLength') {
           return {
             ...prevState,
             intClock: newTime,
@@ -100,17 +100,17 @@ function Clock() {
       setState((prevState) => {
         if (prevState.intClock === 0) {
           audioElement.play();
-          if (prevState.workTime) {
+          if (prevState.sessionMode) {
             return {
               ...prevState,
               intClock: prevState.breakLength * 60,
-              workTime: false,
+              sessionMode: false,
             };
           } else {
             return {
               ...prevState,
               intClock: prevState.sessionLength * 60,
-              workTime: true,
+              sessionMode: true,
             };
           }
         }
@@ -151,7 +151,7 @@ function Clock() {
         handleStartStop={handleStartStop}
         handleReset={handleReset}
         calcDisplayTime={calcDisplayTime}
-        workTime={state.workTime}
+        sessionMode={state.sessionMode}
         intClock={state.intClock}
         isTimerRunning={state.isTimerRunning}
       />

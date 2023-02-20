@@ -2,7 +2,7 @@
 // import PauseButton from './PauseButton.js';
 
 const Timer = (props) => {
-  const timerLabel = props.workTime ? 'Session' : 'Break';
+  const timerLabel = props.sessionMode ? 'Session' : 'Break';
   const timeClass = props.intClock < 61 ? 'time-left warning' : 'time-left';
 
   const playPause = props.isTimerRunning;
