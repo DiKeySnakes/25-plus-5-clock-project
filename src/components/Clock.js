@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import initialState from './initialState';
-// import Header from './Header';
 import Timer from './Timer';
 import SessionButtons from './SessionButtons';
-// import Footer from './Footer';
-import alarm from '../media/alarm.mp3';
+import beep from '../media/beep.mp3';
 
 function Clock() {
   const [state, setState] = useState({ ...initialState });
@@ -170,7 +168,7 @@ function Clock() {
         intClock={state.intClock}
         isTimerRunning={state.isTimerRunning}
       />
-      <audio id='beep' src={alarm} preload='auto' ref={audioRef} />
+      <audio id='beep' src={beep} preload='auto' ref={audioRef} />
     </div>
   );
 }

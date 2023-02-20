@@ -76,3 +76,7 @@ button {
   color: #4aec8c;
   font-size: calc(2rem + 2vmin);
 }
+
+.tomato {
+  width: 5rem;
+}

@@ -1,4 +1,5 @@
 import SettingsGroup from './SettingsGroup';
+import tomato from '../media/tomato.png';
 
 const SessionButtons = (props) => {
   return (
@@ -11,6 +12,7 @@ const SessionButtons = (props) => {
         timerLength={props.breakLength}
         name='Break Length'
       />
+      <img src={tomato} alt='tomato' className='tomato' />
       <SettingsGroup
         handleIncrement={props.handleIncrement}
         handleDecrement={props.handleDecrement}
