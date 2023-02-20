@@ -12,11 +12,6 @@ function Clock() {
 
   console.log(state);
 
-  useEffect(() => {
-    document.addEventListener('touchstart', unlockAudioForIOS);
-    return document.removeEventListener('touchstart', unlockAudioForIOS);
-  });
-
   const handleStartStop = () => {
     if (!state.isTimerRunning) {
       intervalIdRef.current = runTimer();
@@ -40,7 +35,7 @@ function Clock() {
   const handleReset = () => {
     clearInterval(intervalIdRef.current);
     intervalIdRef.current = 0;
-    setState({ ...initialState, audioUnlocked: true });
+    setState({ ...initialState });
 
     audioElement.pause();
     audioElement.currentTime = 0;
@@ -138,14 +133,6 @@ function Clock() {
     if (newSecs.length === 1) newSecs = '0' + newSecs;
 
     return newMin + ':' + newSecs;
-  };
-
-  const unlockAudioForIOS = () => {
-    if (!state.audioUnlocked) {
-      audioElement.play();
-      audioElement.pause();
-      audioElement.currentTime = 0;
-    }
   };
 
   useEffect(() => {
