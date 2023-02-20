@@ -17,8 +17,8 @@ const SessionButtons = (props) => {
         handleIncrement={props.handleIncrement}
         handleDecrement={props.handleDecrement}
         idText='session'
-        fnInput='workLength'
-        timerLength={props.workLength}
+        fnInput='sessionLength'
+        timerLength={props.sessionLength}
         name='Session Length'
       />
     </div>

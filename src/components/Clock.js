@@ -47,11 +47,11 @@ function Clock() {
       const newTime = newSessionLength * 60;
 
       if (prevState[input] < 60 && !state.isTimerRunning) {
-        if (prevState.workTime && input === 'workLength') {
+        if (prevState.workTime && input === 'sessionLength') {
           return {
             ...prevState,
             intClock: newTime,
-            workLength: newSessionLength,
+            sessionLength: newSessionLength,
           };
         } else if (!prevState.workTime && input === 'breakLength') {
           return {
@@ -74,11 +74,11 @@ function Clock() {
       const newTime = newSessionLength * 60;
 
       if (prevState[input] > 1 && !state.isTimerRunning) {
-        if (prevState.workTime && input === 'workLength') {
+        if (prevState.workTime && input === 'sessionLength') {
           return {
             ...prevState,
             intClock: newTime,
-            workLength: newSessionLength,
+            sessionLength: newSessionLength,
           };
         } else if (!prevState.workTime && input === 'breakLength') {
           return {
@@ -109,7 +109,7 @@ function Clock() {
           } else {
             return {
               ...prevState,
-              intClock: prevState.workLength * 60,
+              intClock: prevState.sessionLength * 60,
               workTime: true,
             };
           }
@@ -143,7 +143,7 @@ function Clock() {
     <div className='clock-wrapper'>
       <SessionButtons
         breakLength={state.breakLength}
-        workLength={state.workLength}
+        sessionLength={state.sessionLength}
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
       />

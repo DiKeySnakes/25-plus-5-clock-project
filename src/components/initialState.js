@@ -3,7 +3,7 @@ const initialState = {
   isTimerRunning: false,
   workTime: true,
   breakLength: 5,
-  workLength: 25,
+  sessionLength: 25,
 };
 
 export default initialState;
