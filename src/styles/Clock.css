@@ -1,11 +1,13 @@
 :root {
   --red: #f54e4e;
   --green: #4aec8c;
+  --main-white: #f0f0f0;
+  --main-gray: #303841;
+  --main-box-shadow: 2.5rem 2.5rem 1.25rem 0rem rgba(0, 0, 0, 0.35);
 }
 
 body {
-  background-color: #30384b;
-  color: #eee;
+  color: var(--main-white);
 }
 
 button {
@@ -79,4 +81,20 @@ button {
 
 .tomato {
   width: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 1007px) {
+  #main-settings-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #main-settings-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
