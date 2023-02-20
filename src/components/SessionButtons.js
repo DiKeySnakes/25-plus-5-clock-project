@@ -2,14 +2,14 @@ import SettingsGroup from './SettingsGroup';
 
 const SessionButtons = (props) => {
   return (
-    <div className='outer-settings-wrapper'>
+    <div id='main-settings-container'>
       <SettingsGroup
         handleIncrement={props.handleIncrement}
         handleDecrement={props.handleDecrement}
         idText='break'
         fnInput='breakLength'
         timerLength={props.breakLength}
-        name='Break timer'
+        name='Break Length'
       />
       <SettingsGroup
         handleIncrement={props.handleIncrement}
@@ -17,7 +17,7 @@ const SessionButtons = (props) => {
         idText='session'
         fnInput='workLength'
         timerLength={props.workLength}
-        name='Work timer'
+        name='Session Length'
       />
     </div>
   );

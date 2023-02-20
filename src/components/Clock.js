@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import initialState from './initialState';
-import Header from './Header';
+// import Header from './Header';
 import Timer from './Timer';
 import SessionButtons from './SessionButtons';
-import Footer from './Footer';
+// import Footer from './Footer';
 import alarm from '../media/alarm.mp3';
 
 function Clock() {
@@ -155,27 +155,23 @@ function Clock() {
   }, []);
 
   return (
-    <>
-      <main className='main-wrapper'>
-        <Header />
-        <Timer
-          handleStartStop={handleStartStop}
-          handleReset={handleReset}
-          calcDisplayTime={calcDisplayTime}
-          workTime={state.workTime}
-          intClock={state.intClock}
-          isTimerRunning={state.isTimerRunning}
-        />
-        <SessionButtons
-          breakLength={state.breakLength}
-          workLength={state.workLength}
-          handleIncrement={handleIncrement}
-          handleDecrement={handleDecrement}
-        />
-        <audio id='beep' src={alarm} preload='auto' ref={audioRef} />
-      </main>
-      <Footer />
-    </>
+    <div className='clock-wrapper'>
+      <SessionButtons
+        breakLength={state.breakLength}
+        workLength={state.workLength}
+        handleIncrement={handleIncrement}
+        handleDecrement={handleDecrement}
+      />
+      <Timer
+        handleStartStop={handleStartStop}
+        handleReset={handleReset}
+        calcDisplayTime={calcDisplayTime}
+        workTime={state.workTime}
+        intClock={state.intClock}
+        isTimerRunning={state.isTimerRunning}
+      />
+      <audio id='beep' src={alarm} preload='auto' ref={audioRef} />
+    </div>
   );
 }
 

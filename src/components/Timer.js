@@ -2,19 +2,23 @@
 // import PauseButton from './PauseButton.js';
 
 const Timer = (props) => {
-  // Conditional rendering
-  const timerLabel = props.workTime ? 'Work it baby!' : 'Slacking time!';
+  const timerLabel = props.workTime ? 'Session' : 'Break';
   const timeClass = props.intClock < 61 ? 'time-left warning' : 'time-left';
 
   const playPause = props.isTimerRunning;
   const ariaLabel = props.isTimerRunning ? 'Pause timer' : 'Start timer';
 
   return (
-    <>
-      <div id='timer-label' className='timer-label'>
-        {timerLabel}
+    <div id='timer-container'>
+      <div id='display-container'>
+        <div id='timer-label' className={timeClass}>
+          {timerLabel}
+        </div>
+        <div id='time-left' className={timeClass}>
+          <h1>{props.calcDisplayTime()}</h1>
+        </div>
       </div>
-      <div className='timer-wrapper'>
+      <div className='timer-control-buttons-wrapper'>
         <button
           id='start_stop'
           className='start-stop'
@@ -26,10 +30,6 @@ const Timer = (props) => {
             <i className='fa-solid fa-play'></i>
           )}
         </button>
-        <div id='time-left' className={timeClass}>
-          <p>{props.calcDisplayTime()}</p>
-          <hr />
-        </div>
         <button
           id='reset'
           className='reset'
@@ -38,7 +38,7 @@ const Timer = (props) => {
           <i className='fa-solid fa-arrows-rotate'></i>
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
