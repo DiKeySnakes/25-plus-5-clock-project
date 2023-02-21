@@ -1,28 +1,28 @@
-import SettingsGroup from './SettingsGroup';
+import SettingsButtonsGroup from './SettingsButtonsGroup';
 import tomato from '../media/tomato.png';
 
-const SessionButtons = (props) => {
+const SettingsButtons = (props) => {
   return (
     <div id='main-settings-container'>
-      <SettingsGroup
+      <SettingsButtonsGroup
         handleIncrement={props.handleIncrement}
         handleDecrement={props.handleDecrement}
         idText='break'
-        fnInput='breakLength'
+        settingsModeInput='breakLength'
         timerLength={props.breakLength}
-        name='Break Length'
+        settingsModeName='Break Length'
       />
       <img src={tomato} alt='tomato' className='tomato' />
-      <SettingsGroup
+      <SettingsButtonsGroup
         handleIncrement={props.handleIncrement}
         handleDecrement={props.handleDecrement}
         idText='session'
-        fnInput='sessionLength'
+        settingsModeInput='sessionLength'
         timerLength={props.sessionLength}
-        name='Session Length'
+        settingsModeName='Session Length'
       />
     </div>
   );
 };
 
-export default SessionButtons;
+export default SettingsButtons;

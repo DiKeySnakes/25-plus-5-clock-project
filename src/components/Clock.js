@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import initialState from './initialState';
 import Timer from './Timer';
-import SessionButtons from './SessionButtons';
+import SettingsButtons from './SettingsButtons';
 import beep from '../media/beep.mp3';
 
 function Clock() {
@@ -9,8 +9,6 @@ function Clock() {
   const audioRef = useRef();
   const audioElement = audioRef.current;
   const intervalIdRef = useRef(0);
-
-  console.log(state);
 
   const handleStartStop = () => {
     if (!state.isTimerActive) {
@@ -141,7 +139,7 @@ function Clock() {
 
   return (
     <div className='clock-wrapper'>
-      <SessionButtons
+      <SettingsButtons
         breakLength={state.breakLength}
         sessionLength={state.sessionLength}
         handleIncrement={handleIncrement}

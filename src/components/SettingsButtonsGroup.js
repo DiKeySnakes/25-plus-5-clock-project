@@ -1,14 +1,14 @@
-const SettingsGroup = (props) => {
+const SettingsButtonsGroup = (props) => {
   return (
     <div id='settings-container'>
       <div id={`${props.idText}-label`} className='settings-label'>
-        {props.name}
+        {props.settingsModeName}
       </div>
       <div className='settings-wrapper'>
         <button
           id={`${props.idText}-increment`}
           className='settings-button'
-          onClick={() => props.handleIncrement(props.fnInput)}>
+          onClick={() => props.handleIncrement(props.settingsModeInput)}>
           <i className='fa-solid fa-arrow-up'></i>
         </button>
         <div id={`${props.idText}-length`} className='settings-time'>
@@ -17,7 +17,7 @@ const SettingsGroup = (props) => {
         <button
           id={`${props.idText}-decrement`}
           className='settings-button'
-          onClick={() => props.handleDecrement(props.fnInput)}>
+          onClick={() => props.handleDecrement(props.settingsModeInput)}>
           <i className='fa-solid fa-arrow-down'></i>
         </button>
       </div>
@@ -25,4 +25,4 @@ const SettingsGroup = (props) => {
   );
 };
 
-export default SettingsGroup;
+export default SettingsButtonsGroup;
