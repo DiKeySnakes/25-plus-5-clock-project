@@ -1,5 +1,5 @@
 const initialState = {
-  intClock: 1500,
+  internalCountdown: 1500,
   isTimerRunning: false,
   sessionMode: true,
   breakLength: 5,

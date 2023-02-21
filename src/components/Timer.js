@@ -3,7 +3,8 @@
 
 const Timer = (props) => {
   const timerLabel = props.sessionMode ? 'Session' : 'Break';
-  const timeClass = props.intClock < 61 ? 'time-left warning' : 'time-left';
+  const timeClass =
+    props.internalCountdown < 61 ? 'time-left warning' : 'time-left';
 
   const playPause = props.isTimerRunning;
   const ariaLabel = props.isTimerRunning ? 'Pause timer' : 'Start timer';

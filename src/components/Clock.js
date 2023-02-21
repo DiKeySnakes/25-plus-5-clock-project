@@ -50,13 +50,13 @@ function Clock() {
         if (prevState.sessionMode && input === 'sessionLength') {
           return {
             ...prevState,
-            intClock: newTime,
+            internalCountdown: newTime,
             sessionLength: newSessionLength,
           };
         } else if (!prevState.sessionMode && input === 'breakLength') {
           return {
             ...prevState,
-            intClock: newTime,
+            internalCountdown: newTime,
             breakLength: newSessionLength,
           };
         } else {
@@ -77,13 +77,13 @@ function Clock() {
         if (prevState.sessionMode && input === 'sessionLength') {
           return {
             ...prevState,
-            intClock: newTime,
+            internalCountdown: newTime,
             sessionLength: newSessionLength,
           };
         } else if (!prevState.sessionMode && input === 'breakLength') {
           return {
             ...prevState,
-            intClock: newTime,
+            internalCountdown: newTime,
             breakLength: newSessionLength,
           };
         } else {
@@ -98,36 +98,36 @@ function Clock() {
   const runTimer = () => {
     return setInterval(() => {
       setState((prevState) => {
-        if (prevState.intClock === 0) {
+        if (prevState.internalCountdown === 0) {
           audioElement.play();
           if (prevState.sessionMode) {
             return {
               ...prevState,
-              intClock: prevState.breakLength * 60,
+              internalCountdown: prevState.breakLength * 60,
               sessionMode: false,
             };
           } else {
             return {
               ...prevState,
-              intClock: prevState.sessionLength * 60,
+              internalCountdown: prevState.sessionLength * 60,
               sessionMode: true,
             };
           }
         }
 
-        const newTime = prevState.intClock - 1;
+        const newTime = prevState.internalCountdown - 1;
 
         return {
           ...prevState,
-          intClock: newTime,
+          internalCountdown: newTime,
         };
       });
     }, 1000);
   };
 
   const calcDisplayTime = () => {
-    let newMin = String(Math.floor(state.intClock / 60));
-    let newSecs = String(state.intClock % 60);
+    let newMin = String(Math.floor(state.internalCountdown / 60));
+    let newSecs = String(state.internalCountdown % 60);
 
     if (newMin.length === 1) newMin = '0' + newMin;
     if (newSecs.length === 1) newSecs = '0' + newSecs;
@@ -152,7 +152,7 @@ function Clock() {
         handleReset={handleReset}
         calcDisplayTime={calcDisplayTime}
         sessionMode={state.sessionMode}
-        intClock={state.intClock}
+        internalCountdown={state.internalCountdown}
         isTimerRunning={state.isTimerRunning}
       />
       <audio id='beep' src={beep} preload='auto' ref={audioRef} />
