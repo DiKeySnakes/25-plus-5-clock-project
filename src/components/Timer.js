@@ -13,7 +13,7 @@ const Timer = (props) => {
           {timerLabel}
         </div>
         <div id='time-left' className={timeClass}>
-          <h1>{props.calcDisplayTime()}</h1>
+          <h1>{props.formatDisplay()}</h1>
         </div>
       </div>
       <div className='timer-control-buttons-wrapper'>

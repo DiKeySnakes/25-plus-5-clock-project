@@ -14,7 +14,7 @@ function Clock() {
 
   const handleStartStop = () => {
     if (!state.isTimerActive) {
-      intervalIdRef.current = runTimer();
+      intervalIdRef.current = activateTimer();
       setState((prevState) => {
         return {
           ...prevState,
@@ -95,7 +95,7 @@ function Clock() {
     });
   };
 
-  const runTimer = () => {
+  const activateTimer = () => {
     return setInterval(() => {
       setState((prevState) => {
         if (prevState.internalCountdown === 0) {
@@ -125,7 +125,7 @@ function Clock() {
     }, 1000);
   };
 
-  const calcDisplayTime = () => {
+  const formatDisplay = () => {
     let newMin = String(Math.floor(state.internalCountdown / 60));
     let newSecs = String(state.internalCountdown % 60);
 
@@ -150,7 +150,7 @@ function Clock() {
       <Timer
         handleStartStop={handleStartStop}
         handleReset={handleReset}
-        calcDisplayTime={calcDisplayTime}
+        formatDisplay={formatDisplay}
         sessionMode={state.sessionMode}
         internalCountdown={state.internalCountdown}
         isTimerActive={state.isTimerActive}
