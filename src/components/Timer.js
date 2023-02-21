@@ -1,13 +1,10 @@
-// import PlayButton from './PlayButton.js';
-// import PauseButton from './PauseButton.js';
-
 const Timer = (props) => {
   const timerLabel = props.sessionMode ? 'Session' : 'Break';
   const timeClass =
     props.internalCountdown < 61 ? 'time-left warning' : 'time-left';
 
-  const playPause = props.isTimerRunning;
-  const ariaLabel = props.isTimerRunning ? 'Pause timer' : 'Start timer';
+  const playPause = props.isTimerActive;
+  const ariaLabel = props.isTimerActive ? 'Pause timer' : 'Start timer';
 
   return (
     <div id='timer-container'>

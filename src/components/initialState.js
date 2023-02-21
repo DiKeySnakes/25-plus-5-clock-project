@@ -1,6 +1,6 @@
 const initialState = {
   internalCountdown: 1500,
-  isTimerRunning: false,
+  isTimerActive: false,
   sessionMode: true,
   breakLength: 5,
   sessionLength: 25,

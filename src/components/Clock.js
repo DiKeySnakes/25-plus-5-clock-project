@@ -13,12 +13,12 @@ function Clock() {
   console.log(state);
 
   const handleStartStop = () => {
-    if (!state.isTimerRunning) {
+    if (!state.isTimerActive) {
       intervalIdRef.current = runTimer();
       setState((prevState) => {
         return {
           ...prevState,
-          isTimerRunning: true,
+          isTimerActive: true,
         };
       });
     } else {
@@ -26,7 +26,7 @@ function Clock() {
       setState((prevState) => {
         return {
           ...prevState,
-          isTimerRunning: false,
+          isTimerActive: false,
         };
       });
     }
@@ -46,7 +46,7 @@ function Clock() {
       const newSessionLength = prevState[input] + 1;
       const newTime = newSessionLength * 60;
 
-      if (prevState[input] < 60 && !state.isTimerRunning) {
+      if (prevState[input] < 60 && !state.isTimerActive) {
         if (prevState.sessionMode && input === 'sessionLength') {
           return {
             ...prevState,
@@ -73,7 +73,7 @@ function Clock() {
       const newSessionLength = prevState[input] - 1;
       const newTime = newSessionLength * 60;
 
-      if (prevState[input] > 1 && !state.isTimerRunning) {
+      if (prevState[input] > 1 && !state.isTimerActive) {
         if (prevState.sessionMode && input === 'sessionLength') {
           return {
             ...prevState,
@@ -153,7 +153,7 @@ function Clock() {
         calcDisplayTime={calcDisplayTime}
         sessionMode={state.sessionMode}
         internalCountdown={state.internalCountdown}
-        isTimerRunning={state.isTimerRunning}
+        isTimerActive={state.isTimerActive}
       />
       <audio id='beep' src={beep} preload='auto' ref={audioRef} />
     </div>
