@@ -1,4 +1,4 @@
-const SettingsButtonsGroup = (props) => {
+function SettingsButtonsGroup(props) {
   return (
     <div id='settings-container'>
       <div id={`${props.idText}-label`} className='settings-label'>
@@ -23,6 +23,6 @@ const SettingsButtonsGroup = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default SettingsButtonsGroup;

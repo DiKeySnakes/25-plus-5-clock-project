@@ -1,4 +1,4 @@
-const Timer = (props) => {
+function Timer(props) {
   const playPause = props.isTimerActive;
   const displayLabel = props.sessionMode ? 'Session' : 'Break';
   const displayClass =
@@ -31,6 +31,6 @@ const Timer = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Timer;

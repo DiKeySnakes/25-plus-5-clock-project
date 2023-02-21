@@ -1,7 +1,7 @@
 import SettingsButtonsGroup from './SettingsButtonsGroup';
 import tomato from '../media/tomato.png';
 
-const SettingsButtons = (props) => {
+function SettingsButtons(props) {
   return (
     <div id='main-settings-container'>
       <SettingsButtonsGroup
@@ -23,6 +23,6 @@ const SettingsButtons = (props) => {
       />
     </div>
   );
-};
+}
 
 export default SettingsButtons;
