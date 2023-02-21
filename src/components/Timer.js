@@ -1,18 +1,16 @@
 const Timer = (props) => {
-  const timerLabel = props.sessionMode ? 'Session' : 'Break';
-  const timeClass =
-    props.internalCountdown < 61 ? 'time-left warning' : 'time-left';
-
   const playPause = props.isTimerActive;
-  const ariaLabel = props.isTimerActive ? 'Pause timer' : 'Start timer';
+  const displayLabel = props.sessionMode ? 'Session' : 'Break';
+  const displayClass =
+    props.internalCountdown < 61 ? 'time-left warning' : 'time-left';
 
   return (
     <div id='timer-container'>
       <div id='display-container'>
-        <div id='timer-label' className={timeClass}>
-          {timerLabel}
+        <div id='timer-label' className={displayClass}>
+          {displayLabel}
         </div>
-        <div id='time-left' className={timeClass}>
+        <div id='time-left' className={displayClass}>
           <h1>{props.formatDisplay()}</h1>
         </div>
       </div>
@@ -20,19 +18,14 @@ const Timer = (props) => {
         <button
           id='start_stop'
           className='start-stop'
-          onClick={props.handleStartStop}
-          aria-label={ariaLabel}>
+          onClick={props.handleStartStop}>
           {playPause ? (
             <i className='fa-solid fa-pause'></i>
           ) : (
             <i className='fa-solid fa-play'></i>
           )}
         </button>
-        <button
-          id='reset'
-          className='reset'
-          onClick={props.handleReset}
-          aria-label='Reset timer'>
+        <button id='reset' className='reset' onClick={props.handleReset}>
           <i className='fa-solid fa-arrows-rotate'></i>
         </button>
       </div>

@@ -7,9 +7,8 @@ const SettingsGroup = (props) => {
       <div className='settings-wrapper'>
         <button
           id={`${props.idText}-increment`}
-          className='settings-btn'
-          onClick={() => props.handleIncrement(props.fnInput)}
-          aria-label={`Increment ${props.idText} timer`}>
+          className='settings-button'
+          onClick={() => props.handleIncrement(props.fnInput)}>
           <i className='fa-solid fa-arrow-up'></i>
         </button>
         <div id={`${props.idText}-length`} className='settings-time'>
@@ -17,9 +16,8 @@ const SettingsGroup = (props) => {
         </div>
         <button
           id={`${props.idText}-decrement`}
-          className='settings-btn'
-          onClick={() => props.handleDecrement(props.fnInput)}
-          aria-label={`Decrement ${props.idText} timer`}>
+          className='settings-button'
+          onClick={() => props.handleDecrement(props.fnInput)}>
           <i className='fa-solid fa-arrow-down'></i>
         </button>
       </div>

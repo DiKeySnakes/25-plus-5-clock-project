@@ -127,12 +127,12 @@ function Clock() {
 
   const formatDisplay = () => {
     let newMin = String(Math.floor(state.internalCountdown / 60));
-    let newSecs = String(state.internalCountdown % 60);
+    let newSec = String(state.internalCountdown % 60);
 
     if (newMin.length === 1) newMin = '0' + newMin;
-    if (newSecs.length === 1) newSecs = '0' + newSecs;
+    if (newSec.length === 1) newSec = '0' + newSec;
 
-    return newMin + ':' + newSecs;
+    return newMin + ':' + newSec;
   };
 
   useEffect(() => {
